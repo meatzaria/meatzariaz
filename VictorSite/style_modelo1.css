@@ -1,0 +1,247 @@
+/* style.css
+   Estilos gerais do site escolar/portfólio
+   - Layout responsivo
+   - Menu fixo no topo
+   - Cards de navegação
+*/
+
+:root {
+    --bg-gradient-top: #8a328a;
+    --bg-gradient-bottom: #eef2ff;
+    --card-bg: #ffffff;
+    --card-border: #dbe2f3;
+    --text-dark: #0f172a;
+    --text-light: #ffffff;
+    --text-muted: #475569;
+    --accent: #f59e0b;
+    --accent-hover: #d97706;
+    --radius-lg: 16px;
+    --radius-sm: 8px;
+    --shadow-card: 0 20px 40px rgba(0,0,0,0.15);
+    --font: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+  /* Zera margens padrão */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ----- BASE DO SITE ----- */
+  body {
+    font-family: var(--font);
+    background: linear-gradient(
+      180deg,
+      var(--bg-gradient-top) 0%,
+      var(--bg-gradient-bottom) 60%
+    );
+    min-height: 100vh;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    padding-top: 70px; /* espaço pro menu fixo */
+  }
+  
+  /* Limita largura do conteúdo e aplica respiro nas laterais */
+  .container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 24px auto;
+    padding: 0 16px 64px;
+  }
+  
+  /* ----- CABEÇALHO / MENU SUPERIOR ----- */
+  header.site-header {
+    background: rgba(100, 25, 129, 0.8);
+    color: var(--text-light);
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(6px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    box-shadow: 0 18px 30px rgba(0,0,0,0.4);
+  }
+  
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+  }
+  
+  .site-logo {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1.2;
+  }
+  
+  /* Navegação principal */
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.1);
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  
+  .nav-menu a:hover {
+    background: var(--accent);
+    color: #111827;
+    border-color: var(--accent);
+  }
+  
+  /* ----- TÍTULOS DE SEÇÃO ----- */
+  .page-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+  
+  .page-desc {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+  
+  /* ----- GRID DE CARDS / BOTÕES GRANDES ----- */
+  .grid-cards {
+    /* layout de cartões para navegação entre áreas / disciplinas */
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(min(250px,100%),1fr));
+    gap: 16px;
+  }
+  
+  .card-link {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--shadow-card);
+    padding: 20px 20px 16px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .15s ease, box-shadow .15s ease;
+    text-decoration: none;
+    color: var(--text-dark);
+  }
+  
+  .card-link:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 24px 50px rgba(0,0,0,0.25);
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .card-desc {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+  }
+  
+  /* Botões internos de disciplina dentro das áreas */
+  .btn-area {
+    background: var(--accent);
+    border: 0;
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #111827;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.4);
+    margin: 6px 6px 6px 0;
+    cursor: pointer;
+  }
+  .btn-area:hover {
+    background: var(--accent-hover);
+  }
+  
+  /* ----- BLOCOS DE CONTEÚDO (para páginas de disciplina) ----- */
+  .content-block {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .content-block h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+  .content-block p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  
+  /* Mini "voltar" no topo das páginas de disciplina */
+  .voltar-area {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-light);
+    background: #0b3d91;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    padding: 6px 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 10px 20px rgba(0,0,0,.4);
+    margin-bottom: 16px;
+  }
+  .voltar-area:hover {
+    background: var(--accent);
+    color: #111827;
+    border-color: var(--accent);
+  }
+  
+  /* ----- RODAPÉ ----- */
+  footer.site-footer {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.75rem;
+    margin-top: auto;
+    padding: 24px 16px 40px;
+  }
+  
+.linha-fotos {
+    display: flex;
+    gap: 20px;        /* espaço entre as figuras */
+    align-items: flex-start; /* alinha todos no topo, mesma altura */
+}
+
+.linha-fotos figure {
+    text-align: center;
+}
